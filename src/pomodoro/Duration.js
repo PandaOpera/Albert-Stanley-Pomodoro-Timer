@@ -17,7 +17,7 @@ function Duration({session, focusDuration, breakDuration, setFocusDuration, setB
                 changeType="decrease"
                 onClick={() => {
             if (focusDuration > 5) {
-              setFocusDuration(focusDuration - 5)
+              setFocusDuration(focusDuration => focusDuration - 5)
               session.timeRemaining -= 5*60}
             }}
               >
@@ -29,7 +29,7 @@ function Duration({session, focusDuration, breakDuration, setFocusDuration, setB
                 data-testid="increase-focus"
                 onClick={() => {
             if (focusDuration < 60) {
-              setFocusDuration(focusDuration + 5)
+              setFocusDuration(focusDuration => focusDuration + 5)
               session.timeRemaining += 5*60
                                     }
             }}
@@ -51,7 +51,7 @@ function Duration({session, focusDuration, breakDuration, setFocusDuration, setB
                   data-testid="decrease-break"
                   onClick={() => {
             if (breakDuration > 1) {
-              setBreakDuration(breakDuration - 1)}
+              setBreakDuration(breakDuration => breakDuration - 1)}
             }}
                 >
                   <span className="oi oi-minus" />
@@ -61,7 +61,7 @@ function Duration({session, focusDuration, breakDuration, setFocusDuration, setB
                   className="btn btn-secondary"
                   data-testid="increase-break"
                   onClick={() => {
-            if (breakDuration < 15) {setBreakDuration(breakDuration + 1)}
+            if (breakDuration < 15) {setBreakDuration(breakDuration => breakDuration + 1)}
             }}
                 >
                   <span className="oi oi-plus" />
